@@ -20,4 +20,4 @@ Paymaster is a payroll management system designed specifically for the Universit
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   https://github.com/Frosco03/paymaster-system.git
