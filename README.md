@@ -21,7 +21,10 @@ Paymaster is a payroll management system designed specifically for the Universit
 1. Clone the repository:
    ```bash
    https://github.com/Frosco03/paymaster-system.git
+   ```
+
 2. Setting up this repository
+
     Open a terminal/powershell in this folder and run these commands:
     ```bash
     composer install
@@ -36,5 +39,6 @@ Paymaster is a payroll management system designed specifically for the Universit
     php artisan migrate
     ```
 3. Running a development server
+
     Open a terminal/powershell in this folder and run composer run dev
 
