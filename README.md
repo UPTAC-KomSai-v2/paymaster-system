@@ -21,3 +21,20 @@ Paymaster is a payroll management system designed specifically for the Universit
 1. Clone the repository:
    ```bash
    https://github.com/Frosco03/paymaster-system.git
+2. Setting up this repository
+    Open a terminal/powershell in this folder and run these commands:
+    ```bash
+    composer install
+    npm install
+    npm run build
+    ```
+    Then make a copy of .env.example and rename it to .env. Change the values to match your database setup (port, username, password, etc)
+
+    Finally run these commands, make sure to say yes when asked:
+    ```bash
+    php artisan key:generate
+    php artisan migrate
+    ```
+3. Running a development server
+    Open a terminal/powershell in this folder and run composer run dev
+
