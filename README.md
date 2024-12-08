@@ -40,5 +40,7 @@ Paymaster is a payroll management system designed specifically for the Universit
     ```
 3. Running a development server
 
-    Open a terminal/powershell in this folder and run composer run dev
+    Open a terminal/powershell in this folder and run 
+    ```bash
+    composer run dev
 
