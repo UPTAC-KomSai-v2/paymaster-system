@@ -12,6 +12,73 @@ Paymaster is a payroll management system designed specifically for the Universit
 - **User Role Management**: Provide different access levels for administrators, payroll managers, and employees to ensure data security and appropriate access.
 - **Secure Data Storage**: Ensure employee data and payroll details are stored securely and meet privacy standards.
 
+## Folder Structure
+
+Below is the general folder structure of the Laravel project:
+
+```
+root
+├── app
+│   ├── Console
+│   ├── Exceptions
+│   ├── Http
+│   │   ├── Controllers
+│   │   ├── Middleware
+│   ├── Models
+│   └── Providers
+├── bootstrap
+│   └── cache
+├── config
+├── database
+│   ├── factories
+│   ├── migrations
+│   └── seeders
+├── public
+│   ├── css
+│   ├── js
+│   └── index.php
+├── resources
+│   ├── css
+│   ├── js
+│   ├── lang
+│   └── views
+├── routes
+│   ├── api.php
+│   ├── channels.php
+│   ├── console.php
+│   └── web.php
+├── storage
+│   ├── app
+│   ├── framework
+│   │   ├── cache
+│   │   ├── sessions
+│   │   └── views
+│   └── logs
+├── tests
+│   ├── Feature
+│   └── Unit
+├── vendor
+├── .env
+├── artisan
+├── composer.json
+├── package.json
+├── phpunit.xml
+└── README.md
+```
+
+### Key Folders
+
+- **app/**: Contains the core of the application including models, controllers, and middleware.
+- **bootstrap/**: Contains the application bootstrap files, including the `app.php` file.
+- **config/**: Contains all of the configuration files for the application.
+- **database/**: Houses database migrations, seeders, and factories.
+- **public/**: The directory accessible by the web server, containing assets and the front-facing `index.php`.
+- **resources/**: Contains views, raw assets (CSS/JS), and language files.
+- **routes/**: Defines all application routes (web, API, console, etc.).
+- **storage/**: Contains compiled views, file-based sessions, caches, and logs.
+- **tests/**: Holds automated tests for the application.
+- **vendor/**: Contains Composer dependencies.
+
 ## Installation
 
 ### Prerequisites
