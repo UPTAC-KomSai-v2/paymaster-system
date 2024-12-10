@@ -30,6 +30,8 @@
                 </div>
             </header>
 
+            <hr class="my-4">
+
             <!-- Search bar -->
             <div class="flex items-center gap-2 w-full my-2 justify-between">
                 <div>
