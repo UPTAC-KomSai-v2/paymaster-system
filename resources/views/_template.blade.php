@@ -20,16 +20,9 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
     </head>
-    <body class="font-sans antialiased h-screen w-screen flex justify-center items-center">
+    <body class="font-sans antialiased h-screen w-screen flex justify-center">
         <div class="w-[50%] py-10 box-border">
-            <img src="{{ asset('images/logo.png') }}" width="100">
-            <h1 class="text-6xl font-black -mt-1 mb-20">Paymaster</h1>
-
-            Welcome to <b>Paymaster!</b> To get started, choose on any of the following links below: 
-            <br/> <br/>
-            <a href="/employees/"><button class="btn btn-primary"><i class="bi bi-people-fill"></i> View Employees</button></a>
-            <a href="/employees/create"><button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Employee</button></a>
-            <a href="/reports"><button class="btn btn-info"><i class="bi bi-people-fill"></i> Generate Reports</button></a>
+        
         </div>
     </body>
 </html>
