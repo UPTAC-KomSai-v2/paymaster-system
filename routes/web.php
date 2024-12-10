@@ -29,7 +29,7 @@ Route::get('/employees', function () {
         ],
     ];
 
-    return view('employees/list', compact('employees'));
+    return view('pages/employees/list', compact('employees'));
 });
 
 Route::get('/employees/view', function (Request $request) {
@@ -54,15 +54,25 @@ Route::get('/employees/view', function (Request $request) {
                 'name' => 'Some Benefit 2',
                 'amount' => 12345
             ]
+            ],
+        'deductions' => [
+            [
+                'name' => 'Some Deduction 1',
+                'amount' => 100
+            ],
+            [
+                'name' => 'Some Deduction 2',
+                'amount' => 12345
+            ]
         ]
     ];
     
 
-    return view('employees/view', compact('employee', 'month', 'year'));
+    return view('pages/employees/view', compact('employee', 'month', 'year'));
 });
 
 Route::get('/employees/create', function () {
-    return view('employees/create');
+    return view('pages/employees/create');
 });
 
 Route::get('/employees/edit', function (Request $request) {
@@ -79,10 +89,10 @@ Route::get('/employees/edit', function (Request $request) {
     ];
     
 
-    return view('employees/edit', compact('employee'));
+    return view('pages/employees/edit', compact('employee'));
 });
 
 
 Route::get('/reports', function () {
-    return view('reports');
+    return view('pages/reports');
 });
