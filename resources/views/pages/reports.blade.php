@@ -23,7 +23,7 @@
     <body class="font-sans antialiased h-screen w-screen flex justify-center">
         <div class="w-[50%] py-10 box-border">
             <header class="flex items-center gap-2">
-                <div><img src="{{ asset('images/logo.png') }}" width="80"></div>
+                <div><a href="/"><img src="{{ asset('images/logo.png') }}" width="80"></a></div>
                 <div>
                     <h3 class="text-lg">Paymaster</h3>
                     <h1 class="text-4xl font-black -mt-1">Generate Reports</h1>

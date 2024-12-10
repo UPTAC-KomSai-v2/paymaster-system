@@ -23,7 +23,7 @@
     <body class="font-sans antialiased h-screen w-screen flex justify-center">
         <div class="w-[50%] py-10 box-border">
             <header class="flex items-center gap-2">
-                <div><img src="{{ asset('images/logo.png') }}" width="80"></div>
+                <div><a href="/"><img src="{{ asset('images/logo.png') }}" width="80"></a></div>
                 <div>
                     <h3 class="text-lg">Paymaster</h3>
                     <h1 class="text-4xl font-black -mt-1">Employee Info</h1>
@@ -73,26 +73,10 @@
                             <header class="flex justify-between">
                                 <div>
                                     <!-- Month Selection -->
-                                    <select name="m" class="form-select btn btn-light text-left">
-                                        <option value="1" {{ $month == '1' ? 'selected' : '' }}>January</option>
-                                        <option value="2" {{ $month == '2' ? 'selected' : '' }}>February</option>
-                                        <option value="3" {{ $month == '3' ? 'selected' : '' }}>March</option>
-                                        <option value="4" {{ $month == '4' ? 'selected' : '' }}>April</option>
-                                        <option value="5" {{ $month == '5' ? 'selected' : '' }}>May</option>
-                                        <option value="6" {{ $month == '6' ? 'selected' : '' }}>June</option>
-                                        <option value="7">July</option>
-                                        <option value="8">August</option>
-                                        <option value="9">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
-                                    </select>
+                                    <x-month-selector name="m">{{$month}}</x-month-selector>
 
                                     <!-- Year Selection -->
-                                    <select name="y" class="form-select btn btn-light text-left">
-                                        <option value="2024" {{ $year == '2024' ? 'selected' : '' }}>2024</option>
-                                        <option value="2025" {{ $year == '2025' ? 'selected' : '' }}>2025</option>
-                                    </select>
+                                    <x-year-selector name="y">{{$year}}</x-year-selector>
 
                                     <button class="btn btn-light"><i class="bi bi-filter"></i> Filter</button>
                                 </div>
