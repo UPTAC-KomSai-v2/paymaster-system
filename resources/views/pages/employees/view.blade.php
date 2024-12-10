@@ -47,8 +47,10 @@
                 </div>
                 <div>
                     <a href="/employees/edit?e={{$employee['id']}}"><button class="btn btn-secondary"><i class="bi bi-pencil"></i> Edit</button></a>
-                    <button class="btn btn-danger ml-2"><i class="bi bi-trash"></i> Delete</button>
+                    <button class="btn btn-danger ml-2" onclick="tryDeleteEmployee({{json_encode($employee)}})"><i class="bi bi-trash"></i> Delete</button>
                 </div>
+
+                @include('modals.delete-employee')
             </div>
 
             <hr class="my-4">
@@ -72,16 +74,12 @@
 
                             <header class="flex justify-between">
                                 <div>
-                                    <!-- Month Selection -->
                                     <x-month-selector name="m">{{$month}}</x-month-selector>
-
-                                    <!-- Year Selection -->
                                     <x-year-selector name="y">{{$year}}</x-year-selector>
-
-                                    <button class="btn btn-light"><i class="bi bi-filter"></i> Filter</button>
+                                    <button class="btn btn-light border"><i class="bi bi-filter"></i> Filter</button>
                                 </div>
                                 <div>
-                                    <button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Benefit</button>
+                                    <a href="/employees/benefits/add"><button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Benefit</button></a>
                                 </div>
                             </header>
 
@@ -91,34 +89,107 @@
                                 <div class="card mb-2">
                                     <div class="flex items-center px-3 py-1 justify-between">
                                         <div>{{$benefit['name']}}</div>
-                                        <div class="font-bold text-green-400">{{$benefit['amount']}}</div>
+                                        <div class="font-bold text-green-400 text-left w-20">{{number_format($benefit['amount'])}}</div>
                                         <div>
-                                            <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
+                                            <a href="/employees/benefits/edit?e={{$employee['id']}}&b={{$benefit['id']}}"><button 
+                                                class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
                                                 <i class="bi bi-pencil"></i>
-                                            </button>
-                                            <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
+                                            </button></a>
+                                            <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50"
+                                                onclick="tryDeleteBenefit({{json_encode($benefit)}})">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                                 @endforeach
-
                             </div>
                             
-
-                                
+                            @include('modals.delete-benefit')
                             
                         </main>
 
                     </div>
                     <div class="tab-pane fade" id="deductions-view" role="tabpanel" aria-labelledby="deductions-view-tab">
                         <main class="pt-2">
+                            <header class="flex justify-between">
+                                <div>
+                                    <x-month-selector name="m">{{$month}}</x-month-selector>
+                                    <x-year-selector name="y">{{$year}}</x-year-selector>
+                                    <button class="btn btn-light border"><i class="bi bi-filter"></i> Filter</button>
+                                </div>
+                                <div>
+                                    <a href="/employees/benefits/add"><button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Deduction</button></a>
+                                </div>
+                            </header>
 
+                            <!-- Deductions List -->
+                            <div class="mt-2">
+                                @foreach ($employee['deductions'] as $deduction)
+                                <div class="card mb-2">
+                                    <div class="flex items-center px-3 py-1 justify-between">
+                                        <div>{{$deduction['name']}}</div>
+                                        <div class="font-bold text-red-500 text-left w-20">{{number_format($deduction['amount'])}}</div>
+                                        <div>
+                                            <a href="/employees/deductions/edit?e={{$employee['id']}}&b={{$deduction['id']}}"><button 
+                                                class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
+                                                <i class="bi bi-pencil"></i>
+                                            </button></a>
+                                            <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50"
+                                                onclick="tryDeleteDeduction({{json_encode($deduction)}})">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            
+                            @include('modals.delete-deduction')
                         </main>
                     </div>
                 </div>
             </div>
         </div>
     </body>
+
+    <script>
+        function tryDeleteBenefit(benefit) {
+            const modal = $('#confirmDeleteBenefitModal');
+            
+            $('#confirmDeleteBenefitModal #benefitName').text(benefit.name);
+            $('#confirmDeleteBenefitModal #benefitAmount').text(benefit.amount.toLocaleString());
+            $('#confirmDeleteBenefitModal #deleteConfirmBtn').off('click').on('click', () => {
+                console.log(`Deleting benefit with id ${benefit.id}...`);
+                modal.modal('hide');
+            });
+
+            modal.modal('show');
+        }
+
+        function tryDeleteDeduction(deduction) {
+            const modal = $('#confirmDeleteDeductionModal');
+            
+            $('#confirmDeleteDeductionModal #deductionName').text(deduction.name);
+            $('#confirmDeleteDeductionModal #deductionAmount').text(deduction.amount.toLocaleString());
+            $('#confirmDeleteDeductionModal #deleteConfirmBtn').off('click').on('click', () => {
+                console.log(`Deleting deduction with id ${deduction.id}...`);
+                modal.modal('hide');
+            });
+
+            modal.modal('show');
+        }
+
+        function tryDeleteEmployee(employee) {
+            const modal = $('#confirmDeleteEmployeeModal');
+            
+            $('#confirmDeleteEmployeeModal #employeeName').text(`${employee.firstName} ${employee.lastName}`);
+            $('#confirmDeleteEmployeeModal #deleteConfirmBtn').off('click').on('click', () => {
+                console.log(`Deleting employee with id ${employee.id}...`);
+                modal.modal('hide');
+            });
+
+            modal.modal('show');
+        }
+    </script>
 </html>

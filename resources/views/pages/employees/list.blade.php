@@ -75,13 +75,29 @@
                         <a href="/employees/edit?e={{$employee['id']}}"><button class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
                             <i class="bi bi-pencil"></i>
                         </button></a>
-                        <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50">
+                        <button class="btn rounded-circle w-12 h-12 hover:bg-gray-50" onclick="tryDeleteEmployee({{json_encode($employee)}})">
                             <i class="bi bi-trash"></i>
                         </button>
                     </div>
                 </div>
             </div>
             @endforeach
+
+            @include('modals.delete-employee')
         </div>
     </body>
+
+    <script>
+        function tryDeleteEmployee(employee) {
+            const modal = $('#confirmDeleteEmployeeModal');
+            
+            $('#confirmDeleteEmployeeModal #employeeName').text(`${employee.firstName} ${employee.lastName}`);
+            $('#confirmDeleteEmployeeModal #deleteConfirmBtn').off('click').on('click', () => {
+                console.log(`Deleting employee with id ${employee.id}...`);
+                modal.modal('hide');
+            });
+
+            modal.modal('show');
+        }
+    </script>
 </html>
