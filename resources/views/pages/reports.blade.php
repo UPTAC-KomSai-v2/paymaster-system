@@ -59,7 +59,7 @@
                         <h5 class="font-bold text-xl">Payslip</h5>
                     </div>
                     <div class="flex-none">
-                        <a href="/reports/payroll"><button class="btn btn-light hover:bg-gray-50">
+                        <a href="/reports/payslip"><button class="btn btn-light hover:bg-gray-50">
                             <i class="bi bi-download"></i> Download
                         </button></a>
                     </div>
@@ -76,7 +76,7 @@
                         <h5 class="font-bold text-xl">Abstract</h5>
                     </div>
                     <div class="flex-none">
-                        <a href="/reports/payroll"><button class="btn btn-light hover:bg-gray-50">
+                        <a href="/reports/abstract"><button class="btn btn-light hover:bg-gray-50">
                             <i class="bi bi-download"></i> Download
                         </button></a>
                     </div>

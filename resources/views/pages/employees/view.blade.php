@@ -119,7 +119,7 @@
                                     <button class="btn btn-light border"><i class="bi bi-filter"></i> Filter</button>
                                 </div>
                                 <div>
-                                    <a href="/employees/benefits/add"><button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Deduction</button></a>
+                                    <a href="/employees/deductions/add"><button class="btn btn-secondary"><i class="bi bi-plus"></i> Add Deduction</button></a>
                                 </div>
                             </header>
 

@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\AbstractGenerationController;
+use App\Http\Controllers\PayslipGenerationController;
+use App\Http\Controllers\PayrollGenerationController;
+
+
 Route::get('/', function () {
     return view('pages/welcome');
 });
@@ -180,3 +185,7 @@ Route::get('/employees/deductions/edit', function (Request $request) {
 
     return view('pages/employees/deductions/edit', compact('employee', 'deductionType', 'amount'));
 });
+
+Route::get('/reports/abstract', [AbstractGenerationController::class, 'downloadReport']);
+Route::get('/reports/payslip', [PayslipGenerationController::class, 'downloadReport']);
+Route::get('/reports/payroll', [PayrollGenerationController::class, 'downloadReport']);
