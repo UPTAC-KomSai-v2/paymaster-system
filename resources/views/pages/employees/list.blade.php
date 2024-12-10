@@ -31,20 +31,18 @@
             </header>
 
             <!-- Search bar -->
-            <div class="flex items-center gap-2 w-full my-2">
-                <div class="relative flex-auto">
-                    <input type="text" class="form-control pl-10 pr-4 py-2 w-full border border-gray-300 rounded-full" placeholder="Search...">
-                    <div class="absolute top-1/2 left-3 transform -translate-y-1/2">
-                        <i class="bi bi-search"></i>
-                    </div>
-                </div>
+            <div class="flex items-center gap-2 w-full my-2 justify-between">
                 <div>
                     <a href="/employees/create"><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal" onclick="$('#exampleModal').modal('show')">
                         <i class="bi bi-plus"></i> ADD EMPLOYEE
                     </button></a>
-                    <a href="/reports"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" onclick="$('#exampleModal').modal('show')">
-                        <i class="bi bi-file-earmark-arrow-down"></i> REPORTS
-                    </button></a>
+                </div>
+                <div class="relative">
+                    <input type="text" class="form-control pl-10 pr-4 py-1.5 border w-80 inline-block border-gray-300 rounded-full" placeholder="Look for something specific...">
+                    <button class="btn btn-light border inline-block rounded-full">Search</button>
+                    <div class="absolute top-1/2 left-3 transform -translate-y-1/2">
+                        <i class="bi bi-search"></i>
+                    </div>
                 </div>
             </div>
 
